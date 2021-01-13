@@ -12,3 +12,6 @@ git log 可显示所有从近到远所提交的所有版本信息，包括SHA1�
 方便查看每个版本的SHA1序列号。git status 可以查看工作区内所有文件的修改情况，提交过的发生修改显示
 为Changes not staged for commit（文件未暂存）并给出提示命令,未提交的显示为Untracked files. 使用add命令后在git status
 会发现Change to be commited 表明都在文件都添加到暂存区stage等待提交。
+使用git diff HEAD -- readme.txt可查看该文件在工作区和版本库里的版本区别。
+当你add后（版本1）对文件又修改后（形成版本2）没有继续add而是commit了，那么暂存区提交的是版本1而不是
+后形成的版本2.
