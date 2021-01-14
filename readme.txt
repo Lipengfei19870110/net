@@ -78,3 +78,9 @@ git merge --no-ff -m "此处使用-m添加commit提交说明只是为了将来�
 在修改一次，再提交一次。
 git rebse -i 可将本地多次提交版本合并为1个，简化提交历史，避免合并到主分支时可能发生多次的解决冲突
 >>>>>>> bb
+
+标签使用
+使用命令git tag -a 标签名字 -m "标签解释"可以快速建立标签，要注意的是标签是和commit挂钩的，如果想指
+定给某一个commit打标签，可以先用git log --graph --pretty=oneline --abbrev-commit找到该历史commit，然
+后使用git tag -a 标签名字 -m "标签解释" commit历史版本号 ，可以打上标签。
+使用git tag 可以列出所有标签，git show <tagname>可以显示该标签详细信息。
