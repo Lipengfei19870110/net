@@ -41,3 +41,10 @@ master分支关联起来，在以后的推送或者拉取时就可以简化命�
 所在的分支，然后就可以将新的修改提交到dev分支了。以后所有的新更改都在dev分支里，master就没有了。
 但是可以将两者合并，切换到master分支后git merge dev，会将dev分支的内容合并到master去。 然后可以
 使用git branch -d dev删除dev分支。
+在master分支使用--no-ff参数合并分支为普通模式，合并后历史有分支能看出来曾经做过合并，而直接
+git merge命令则采用fast forward模式合并，合并后看不出来曾经做过合并。
+git merge --no-ff -m "此处使用-m添加commit提交说明只是为了将来使用git log --graph --prettyoneline
+ --abbrev-commit 命令时能查看到分支历史" bb
+ bb为新建的分支。上面两行的意思是采用普通模式将bb分支合并到master分支，保留合并历史信息。
+ 通常都在新建分支上进行推送，下拉。master分支一般不开发代码，只在发布新版本时推送。下面进行分布式
+ 开发时以新建分支（比如bb）为主，围绕他进行合并，下拉及推送。
