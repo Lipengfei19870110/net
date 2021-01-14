@@ -37,3 +37,7 @@ master分支关联起来，在以后的推送或者拉取时就可以简化命�
 一路yes就行了，主要是确认Key信息是否一致及添加到github信任列表里。
 克隆远程库
 使用git clone git@github.com:Lipengfei19870110/net.git将远程库克隆到本地库。提前在本地建好文件夹
+创建新的分支，git switch -c dev，会自动切换到dev分支去。git branch可以查看所有的分支，带*的是目前
+所在的分支，然后就可以将新的修改提交到dev分支了。以后所有的新更改都在dev分支里，master就没有了。
+但是可以将两者合并，切换到master分支后git mergin dev，会将dev分支的内容合并到master去。 然后可以
+使用git branch -d dev删除dev分支。
