@@ -48,3 +48,20 @@ git merge --no-ff -m "此处使用-m添加commit提交说明只是为了将来�
  bb为新建的分支。上面两行的意思是采用普通模式将bb分支合并到master分支，保留合并历史信息。
  通常都在新建分支上进行推送，下拉。master分支一般不开发代码，只在发布新版本时推送。下面进行分布式
  开发时以新建分支（比如bb）为主，围绕他进行合并，下拉及推送。
+ bug修复时的git应用模式
+ 1.假设我们目前在bb分支干活，首先保存当前分支内的工作内容（特别是没有完成时无法提交时），使用命令
+ git stash将当前工作现场“储藏”起来，这样工作区就干净了，可以放心的创建分支去修复bug
+ 2.确定要在哪个分支上修复bug，切换到该分支创建新的bug分支，以master分支为例
+ git switch master 切换到master分支
+ git switch -c bugfix001 建立该分支的bug修复分支，对文件进行修改，然后切换到master分支进行合并，然后
+ 删除bug修复分支 Git branch -d bugfix001
+ 3.切换到bb分支接着干活，需要先把“储藏”起来的工作内容恢复过来，使用git stash list可查看所有储藏的工作
+ 内容，使用git stash apply stash@{0} 恢复指定的stash，这里的{0}是当前最近的一个stash。这个命令不会删除
+ stash,也可以用git stash pop 命令，在恢复工作内容的同时将stash删除了，不推荐使用这个方法，建立保留每次
+ 的stash。
+ 4.我们修复了master分支的bug，那么基于master分支建立的bb分支肯定也存在这个bug。我们只需要将修复bug的那
+ 个commit提交的修改复制到bb分支就行（只是复制提交的修改不是复制整个master分支）。
+ 使用cherry-pick （commit版本号） 将复制一个特定的提交到当前分支。并自动在当前分支再提交一次，会从新获得
+ 一个新的commit编号，与复制之前的编号不一样
+ 修复了吗？
+ 
