@@ -93,7 +93,7 @@ git rebse -i 可将本地多次提交版本合并为1个，简化提交历史，
 ########国内github托管
 ----gitee,使用与github类似。1个本地库可以同时关联github和gitee，但是注意2个不同平台上
 的远程库不要一样。比如在github上叫netorigin，在gitee上可以叫gnetorigin。
-关联命令 git remote add gitte@gitee.com:Lipengfei19870110（gitee账户名）/gnetorigin.git；
+关联命令 git remote add gitee@gitee.com:lipengfei19870110（gitee账户名）/gnetorigin.git；
 git remote -v 查看关联；git remote rm 远程库名，可以删除该关联；git push gitee master 推送到gitee上
 ########自定义git(配置别名) 
 git config --global alias.st status。该命令表示，将git status（查询状态）命令自定义为git st(别名).
