@@ -17,3 +17,6 @@ git log 可显示所有从近到远所提交的所有版本信息，包括SHA1�
 后形成的版本2.
 版本1
 版本2
+使用git chectout -- readme.txt命令（注意--两边的空格）可以撤销工作区内的文档修改。在没有add到暂存区内
+如果已经add到暂存区了，但是还没有commit提交到远程仓库，可以先git reset HEAD~1撤先回到工作区，在使
+用checkout命令撤销更改。
