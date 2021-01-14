@@ -35,4 +35,5 @@ Lipengfei19870110为本人github账户名
 -u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的
 master分支关联起来，在以后的推送或者拉取时就可以简化命令。第一次push或clone链接远程库会受到警告，
 一路yes就行了，主要是确认Key信息是否一致及添加到github信任列表里。
-
+克隆远程库
+使用git clone git@github.com:Lipengfei19870110/net.git将远程库克隆到本地库。提前在本地建好文件夹
