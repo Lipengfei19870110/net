@@ -2,7 +2,8 @@
 Git IS free software.
 This txt is test code.
 Lipengfei wanna to reasch python and Resnet.
-存放在当前git工作区（即net文件夹下，只有文件建立在net文件夹下或其子目录下才可以提交git）的文件，
+存放在当前git工作区（即net文件夹下，只有文件建立在net文件夹下或其子目录下才可以提交git，在建立的net
+文件夹内先执行git init生成.int文件）的文件，
 由git add 命令提交到暂存区stage，然后由命令git commit -m “版本说明”提交到指定分支下
 （默认为master分支）。多次提交会在该分支下形成一个时间线将各个版本按先后顺序串起来，
 当你想退回某个版本是，使用命令git reset --hard HEAD~n（HEAD代表该分支下不同版本时间线上的指针，
@@ -20,3 +21,18 @@ git log 可显示所有从近到远所提交的所有版本信息，包括SHA1�
 使用git chectout -- readme.txt命令（注意--两边的空格）可以撤销工作区内的文档修改。在没有add到暂存区内
 如果已经add到暂存区了，但是还没有commit提交到远程仓库，可以先git reset HEAD~1撤先回到工作区，在使
 用checkout命令撤销更改。
+建立远程仓库与本地仓库的链接，先注册github账号，然后在本地git bash中切换到当前git目录（NET文件夹内）
+并确认以执行git init命令，然后使用命令shh-keygen -t rsa -C "303365961@qq.com"。一路回车生成SHA1加密的
+密匙，包括私用密匙id——rsa和公用密匙id_rsa.pub，均存放于C:/users/Lipengfei/.shh文件夹内。
+然后登陆github，打开右上角Account settings，找到左边的SSH Keys，打开页面点Add SHH Keys,tittle随便写，
+Key文本框里粘贴id_rsa.pub文件里的内容，点击add key就可以了。
+提前在github里建立了net远程仓库
+然后在git bash里使用命令git remote add netorigin git@github.com:Lipengfei19870110/net.git将本地仓库
+关联到net远程仓库。命令中netorigin表示远程仓库名（这是自己设定的，系统通常默认的名字为origin）
+Lipengfei19870110为本人github账户名
+分支master的关联
+下一步就可以使用git push -u netorigin marster推送本地库内容到远程库。第一次推送master分支时加上 
+-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的
+master分支关联起来，在以后的推送或者拉取时就可以简化命令。第一次push或clone链接远程库会受到警告，
+一路yes就行了，主要是确认Key信息是否一致及添加到github信任列表里。
+
